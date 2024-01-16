@@ -1,7 +1,9 @@
 import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
+
 import NextAuthSessionProvider from "~/components/SessionProvider";
+import QueryClientProvider from "~/components/QueryClientProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,7 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans ${inter.variable}`}>
-        <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+        <QueryClientProvider>
+          <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

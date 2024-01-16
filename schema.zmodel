@@ -7,6 +7,13 @@ generator js {
     provider = "prisma-client-js"
 }
 
+plugin hooks {
+  provider = '@zenstackhq/tanstack-query'
+  target = 'react'
+  version = 'v5'
+  output = 'src/lib/hooks'
+}
+
 // where users can collaborate on todo lists and items
 model Space {
     id String @id @default(cuid())
